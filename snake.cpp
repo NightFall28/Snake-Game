@@ -1,3 +1,6 @@
+// Credit to NVitanovic for this Snake Game program
+// https://www.youtube.com/watch?v=E_-lMZDi7Uw&ab_channel=NVitanovic
+
 #include <iostream>
 using namespace std;
 #include <Windows.h>
@@ -14,7 +17,7 @@ enum eDirection { STOP = 0, LEFT, RIGHT, UP, DOWN };
 eDirection dir;
 
 
-// Set Up the Game
+// Set Up the Game.
 void SetUp()
 {
 	GameOver = false;
@@ -27,7 +30,7 @@ void SetUp()
 	nTail = 0;
 }
 
-
+// Create the map for the game.
 void draw()
 {
 	system("cls");
@@ -68,6 +71,7 @@ void draw()
 	cout << endl << "Score: " << score;
 }
 
+// Provide controls to the game.
 void input()
 {
 	if (_kbhit()) {
@@ -91,6 +95,7 @@ void input()
 	}
 }
 
+// The rules and settings for the game.
 void logic()
 {
 	int prevX = tailX[0];
@@ -130,7 +135,7 @@ void logic()
 	//	GameOver = true;
 	//}
 
-	// Setting the snake can go through walls:
+	// Allow the snake go through walls:
 	if (x >= width-1) x = 0; else if (x < 0) x = width - 2;
 	if (y >= height) y = 0; else if (y < 0) y = height - 1;
 
@@ -141,6 +146,8 @@ void logic()
 			GameOver = true;
 		}
 	}
+	
+	// Fruit spawn point, score, and tail size
 	if (x == fruitX && y == fruitY) {
 		score++;
 		nTail++;
@@ -158,7 +165,7 @@ int main() {
 		draw();
 		input();
 		logic();
-		Sleep(130);
+		Sleep(130);  // Adjust the speed of the game.
 	}
 	return 0;
 }
