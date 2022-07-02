@@ -160,7 +160,7 @@ void logic()
 int main() {
 
 	SetUp();
-	srand(10000);
+	srand(time(0));
 	while (!GameOver) {
 		draw();
 		input();
