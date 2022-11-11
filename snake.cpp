@@ -1,6 +1,3 @@
-// Credit to NVitanovic for this Snake Game program
-// https://www.youtube.com/watch?v=E_-lMZDi7Uw&ab_channel=NVitanovic
-
 #include <iostream>
 using namespace std;
 #include <Windows.h>
